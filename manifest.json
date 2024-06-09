@@ -1,0 +1,56 @@
+{
+  "author": "Zecento",
+  "action": {
+    "default_icon": {
+      "16": "images/icon16.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    },
+    "default_title": "minimalTube: YouTube without the clutter",
+    "default_popup": "popup.html"
+  },
+  "description": "minimalTube replaces the cluttered YouTube interface with a minimal, distraction-free UI",
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*"
+      ],
+      "js": ["js/content.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "manifest_version": 3,
+  "name": "minimalTube: YouTube without the clutter",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://www.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "js/service-worker.js"
+  },
+  "short_name": "minimalTube",
+  "version": "0.0.0.2",
+  "web_accessible_resources": [
+    {
+        "resources": [
+            "css/*",
+            "images/*",
+            "js/*"
+        ],
+        "matches": [
+            "*://www.youtube.com/*"
+        ]
+    }
+  ]
+}
